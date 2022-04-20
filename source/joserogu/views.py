@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RegForm, RegModelForm
+from .forms import RegModelForm, ContactForm
 from .models import Registrado
 
 # Create your views here.
@@ -41,3 +41,17 @@ def inicio(request):
         # obj = Registrado.objects.create(email=abc, nombre=abc2)
     
     return render(request, "inicio.html", context)
+
+
+def contact(request):
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        for key, value in form.cleaned_data.iteritems():
+            print(key, value)
+
+    context = {
+        "form": form,
+    }
+    return render(request, "forms.html", context)
+
+
