@@ -1,14 +1,23 @@
-<!-- <h1>Página de josemanuel</h1> -->
+{% extends "base.html" %}
+
+{% block head_title %}Bienvenidos a | {% endblock %}
+
+{% block jumbotron_content %}
+<h1>INICIO</h1>
+<p class="lead">Este ejemplo es un ejercicio rápido para ilustrar cómo funciona la barra de navegación alineada en la parte superior. A medida que se desplaza, esta barra de navegación permanece en su posición original y se mueve con el resto de la página.</p>
+<a class="btn btn-lg btn-primary" href="/docs/5.1/components/navbar/" role="button">Vista&raquo;</a>
+  {% endblock %}
+
 {{ titulo }} <br/>
 {{ request.user }}
 <hr/>
 <br/>
 
-
+{% block content %}
 <form method="POST" action="">{% csrf_token %}
 {{ el_form.as_p }}
 <input type="submit" value="Registrame" />
 </form>
-
+{% endblock %}
 
 
