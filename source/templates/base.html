@@ -1,8 +1,7 @@
-
 <!doctype html>
 {% load static %}
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,26 +12,26 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/navbar-static/">
 
-    
+<style> 
+{% block style %} {% endblock %}
+</style>
 
-    
+{% include "head_css.html" %}
+
+
   </head>
   <body>
-
 {% include "navbar.html" %}
 
-<main class="container">
 {% block jumbotron %}
-<!-- Main component for a primary marketing message or call to action-->
-
 {% endblock %}
+<div class="container"></div>
 
 {% block content %}
 {% endblock %}
 
-</main>
+</div>
 
-{% include "head_css.html" %}
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 

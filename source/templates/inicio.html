@@ -1,23 +1,47 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block head_title %}Bienvenidos a | {% endblock %}
 
-{% block jumbotron %}
-<div class="jumbotron">
+<style> 
+{% block style %}
+.jumbotron {
+  background-color: #610F01 !important;
+  color: #FFF !important;
+}
 
-<div class="row">
-    <div class="col-sm-6">
-        <h1>Prueba de Django 1.10</h1>
-        <p>Proyecto realizado por José Manuel Rodríguez Guerrero</p>
-        <p>
-        <a class="btn btn-lg btn-primary" href="/docs/5.1/components/navbar/" role="button">Unirse&raquo;</a>
-        </p>
-    </div>
-    <div class="col-sm-6" style="background-color: black; height: 300px;"></div>
-</div> 
+{% endblock %}
+</style>
+
+{% block jumbotron %}
+
+{% if request.user.is_staff %}
+<div class='container'>
+<table class='table'>
+  {% for instance in queryset %}
+  <tr><td>{{ instance }}</td><td>{{ instance.nombre }}</td><td>hace {{ instance.timestamp|timesince }}</td></tr><br/>
+  {% endfor %}
+</table>
 </div>
-        {% endblock %}
+{% else %}
+
+        <div class="jumbotron">
+        <div class="container">
+        <div class='row'>
+          <div class='col-sm-6'>
+                <h2><strong>Probar Django 1.10</strong></h2>
+                <p>Un proyecto para principiantes. El objetivo es construir una página web simple a la par que elegante en muy poco tiempo</p>
+                <p>
+                  <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Unirse &raquo;</a>
+                </p>
+          </div>
+        <div class='col-sm-6' style="background-color: black;height: 300px;"></div>
+        </div>
+        </div>
+        </div>
+{% endif %}
+{% endblock %}
 
 {{ titulo }} <br/>
 {{ request.user }}
@@ -27,7 +51,7 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-3 col-xs-12 pull-right">
-        <p class="lead text-align-center">{{ titulo }}</p>
+        <p class="lead text-align-center">Suscribirse</p>
         <form method="POST" action="">{% csrf_token %}
         {{ el_form|crispy }}
         <input class="btn btn-primary" type="submit" value="Recibir" />
