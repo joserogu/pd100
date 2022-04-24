@@ -2,3 +2,54 @@
 body {
   min-height: 75rem;
 }
+
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+.navbar-default {
+	background-color: #172548 !important;
+	border-color: #337ab7;
+}
+
+.navbar-default .navbar-brand {
+	color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover {
+	color: #337ab7;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #FFF;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #faffbd;
+}
+
+.navbar-default .navbar-toggle:hover {
+	background-color: white;
+}
+
+.bg-dark {
+  background-color: #610F01 !important;
+  color: #FFF !important;
+}
+
+.btn {
+  color: #FFF;
+}
+
+.navbar-dark .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: #faffbd;
+}
+
+.row {
+  margin: auto;
+}
+

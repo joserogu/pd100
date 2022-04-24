@@ -43,32 +43,41 @@
 {% endif %}
 {% endblock %}
 
-{{ titulo }} <br/>
-{{ request.user }}
-<hr/>
-<br/>
 
 {% block content %}
+{% if not request.user.is_staff %}
 <div class="row">
-    <div class="col-sm-3 col-xs-12 pull-right">
-        <p class="lead text-align-center">Suscribirse</p>
-        <form method="POST" action="">{% csrf_token %}
-        {{ el_form|crispy }}
-        <input class="btn btn-primary" type="submit" value="Recibir" />
-        </form>
-    </div>
-    <div class='col-sm-3 text-align-center'>
-        <p class="lead text-align-center" >Todo lo realizado está en GitHub </p>
-        <p><i class="fa-brands fa-github fa-6x"></i></p>
-    </div>
-    <div class='col-sm-3'>
-        <p class="lead text-align-center">Con paciencia</p><img src='{% static "img/fachada.jpg" %}' width="300" height="200"/>
-    </div>
-    <div class='col-sm-3'>
-        <p class="lead text-align-center">Se hará un buen trabajo</p>
-    </div>
+  <div class="col-sm-3 col-xs-12 pull-right">
+    {% if not user.is_authenticated %}
+    <p class='lead text-align-center'>Inscríbete</p>
+		            <form method="POST" action="">{% csrf_token %}
+                {{ el_form|crispy }}
+                <input class='btn btn-primary' type='submit' value='Enviar' />
+                </form>
+    {% else %}
+    <p class='lead text-align-center'>{{ titulo }}<br/><br/><span class="fa-stack fa-4x">
+  <i class="fa fa-circle-thin fa-stack-2x"  style="color:#47b78c;"></i>
+  <i class="fa fa-hand-peace-o fa-stack-1x"></i>
+</span></p>
+    {% endif %}
+  </div>
+<div class='col-sm-3 text-align-center'>
+    <p class="lead text-align-center" >Todo lo realizado está en GitHub </p>
+    <p><i class="fa-brands fa-github fa-6x"></i></p>
 </div>
+<div class='col-sm-3 text-align-center'>
+  <p class='lead text-align-center'>Desarrollador de IES Fernando Aguilar Quignon</p><img src='{% static "img/fachada.jpg" %}' width="300" height="200"/>
+</div>
+<div class='col-sm-3'>
+  <p class='lead text-align-center'>Proyecto futuro<br/><br/><span class="fa-stack fa-4x">
+  <i class="fa fa-circle-o-notch fa-spin fa-stack-2x"></i>
+  <i class="fa fa-font-awesome fa-stack-1x" style="color:#47b78c;"></i>
+</span></p>
+</div>
+</div>
+
+
+
 <hr/>
+{% endif %}
 {% endblock %}
-
-

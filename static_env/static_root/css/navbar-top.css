@@ -21,7 +21,7 @@ body {
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #FFF;
+	color: black;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
@@ -38,11 +38,12 @@ body {
 }
 
 .btn {
-  color: #FFF;
+  color:black;
 }
 
 .navbar-dark .navbar-brand {
   font-weight: bold;
+  color:cyan;
 }
 
 .navbar-dark .navbar-brand:hover {
@@ -53,3 +54,6 @@ body {
   margin: auto;
 }
 
+.menu {
+  color: white;
+}
