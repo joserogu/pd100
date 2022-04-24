@@ -1,10 +1,10 @@
 /* Show it's not fixed to the top */
 body {
-  min-height: 75rem;
+  min-height: 750px;
 }
 
 .navbar-static-top {
-  margin-bottom: 19px;
+  margin-bottom: 0px;
 }
 
 .navbar-default {
@@ -40,3 +40,16 @@ body {
 .btn {
   color: #FFF;
 }
+
+.navbar-dark .navbar-brand {
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-brand:hover {
+  color: #faffbd;
+}
+
+.row {
+  margin: auto;
+}
+
